@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slot 内置组件实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>slot 内置组件实例</h1>
+    <hr/>
+    <div id="app">
+        <cdx>
+            <span slot="url">{{cdxData.blogUrl}}</span>
+            <span slot="name">{{cdxData.netName}}</span>
+            <span slot="skill">{{cdxData.skill}}</span>
+        </cdx>
+    </div>
+    <template id="tep">
+        <div>
+            <p>博客地址：<slot name="url"></slot></p>
+            <p>网名：<slot name="name"></slot></p>
+            <p>技术栈：<slot name="skill"></slot></p>
+        </div>
+    </template>
+    <script>
+        var _cdx={
+            template:`#tep`
+        }
+        var app=new Vue({
+            el:"#app",
+            data:{
+                cdxData:{
+                    blogUrl:'http://www/baidu.com',
+                    netName:'salted fish',
+                    skill:'vue'
+                }
+            },
+            components:{
+                "cdx":_cdx
+            }
+        })
+    </script>
+</body>
+</html>

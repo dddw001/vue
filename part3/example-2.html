@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实例方法</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>实例方法</h1>
+    <hr/>
+    <div id="app">
+
+    </div>
+    <button onclick="destroy()">卸载</button>
+    <button onclick="reload()">更新</button>
+    <button onclick="tick()">更改数据</button>
+    <script>
+        var _cdx=Vue.extend({
+            template:`<p>{{message}}</p>`,
+            data:function(){
+                return{
+                    message:'I am cdx'
+                }
+            },
+            mounted(){
+                console.log('mounted');
+            },
+            destroyed(){
+                console.log("destroyed");
+            },
+            updated(){
+                console.log("updated");
+            }
+        })
+        var vm=new _cdx().$mount("#app");
+
+        function destroy(){
+            vm.$destroy();
+        }
+
+        function reload(){
+            vm.$forceUpdate();
+        }
+
+        function tick(){
+            vm.message="update message info";
+            vm.$nextTick(function(){
+                console.log("message更新后的回调函数");
+            })
+        }
+    </script>
+</body>
+</html>
