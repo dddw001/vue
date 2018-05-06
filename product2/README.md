@@ -2,6 +2,11 @@
 
 > A Vue.js project
 
+## show
+![](https://github.com/dddw001/vue/blob/master/product-pic/product1.PNG)   
+![](https://github.com/dddw001/vue/blob/master/product-pic/product2.PNG)    
+![](https://github.com/dddw001/vue/blob/master/product-pic/product3.PNG)     
+
 ## Build Setup
 
 ``` bash
